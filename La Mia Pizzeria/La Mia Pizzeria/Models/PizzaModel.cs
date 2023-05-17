@@ -16,14 +16,14 @@ namespace La_Mia_Pizzeria.Models
         [MaxLength(300)]
         public string ImgSource { get; set; }
         
-        float Price { get; set; }
+        public float Price { get; set; }
 
         public PizzaModel(string name, string description , string imgSource, float price)
         {
-            Name = name;
-            Description = description;
-            ImgSource = imgSource;
-            Price = price;
+            this.Name = name;
+            this.Description = description;
+            this.ImgSource = imgSource;
+            this.Price = price;
         }
 
 
