@@ -1,0 +1,44 @@
+﻿@model List<PizzaModel>;
+
+
+
+<div class="container mt-5 ">
+    <div class="row my-5">
+        <!--
+        <div class="col-12">
+            <h3>Lista delle Pizze</h3>
+        </div>
+        -->
+
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row row-cols-1 row-cols-md-2 g-4 ">
+
+
+
+                                @{
+                    foreach (PizzaModel pizza in Model)
+                    {
+                        <div class="col  w-50 p-3 d-inline-block">
+                            <div class="card h-100 text-bg-dark mb-3 text-center ">
+                                <img src="@pizza.ImgSource" class="card-img-top square" alt="pizza coi funghi">
+                                <div class="card-body">
+                                    <h5 class="card-title">@pizza.Name</h5>
+                                    <p class="card-text ">@pizza.Description</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-dark pb-5">
+                                    <h4>Prezzo :@pizza.Price.ToString("0.00") €</h4>
+                                    <a class="btn btn-info btn-sm" href="@Url.Action("PizzaDetails", "Pizza", new { Id = pizza.Id })"></a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    }
+
+
+            </div>
+        </div>
+    </div>
+</div>
