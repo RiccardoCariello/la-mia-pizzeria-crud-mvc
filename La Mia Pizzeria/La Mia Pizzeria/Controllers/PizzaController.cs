@@ -6,6 +6,9 @@ namespace La_Mia_Pizzeria.Controllers
     {
         public IActionResult Index()
         {
+            List<PizzaModel> 
+            
+            
             return View();
         }
     }
