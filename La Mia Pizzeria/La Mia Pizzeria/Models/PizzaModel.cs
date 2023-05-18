@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+using La_Mia_Pizzeria.Models.CustomValidations;
+
 namespace La_Mia_Pizzeria.Models
 {
     public class PizzaModel
@@ -16,6 +18,7 @@ namespace La_Mia_Pizzeria.Models
         [StringLength(400, ErrorMessage ="Il seguente campo deve contenere un massimo di 400 caratteri.")]
         [Column(TypeName = "text")]
         [Required(ErrorMessage ="Il campo è obbligatorio.")]
+        [MoreThanFiveWords]
         public string Description { get; set; }
 
         [MaxLength(300)]

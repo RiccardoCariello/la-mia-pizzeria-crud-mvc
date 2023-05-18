@@ -3,7 +3,9 @@
 
 <div class="container">
 
-    <form class="row g-3">
+    <h1 class="mb-3" >Aggiungi una nuova Pizza.</h1>
+
+    <form asp-controller="PizzaModel" asp-action="Create" method="post" class="row g-3">
         @Html.AntiForgeryToken();
         
         <div class="mb-3">
@@ -29,7 +31,7 @@
             <input asp-for="Price" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
             <span asp-validation-for="Price" class="text-danger"></span>
         </div>
-    
+        <button type="submit" class="btn btn-primary">Salva</button>
     </form>
 
 </div>
