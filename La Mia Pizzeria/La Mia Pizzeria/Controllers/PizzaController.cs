@@ -38,5 +38,32 @@ namespace La_Mia_Pizzeria.Controllers
                 }
             }
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(PizzaModel newPizza)
+        {
+            if (ModelState.IsValid) 
+            {
+                return View("Create", newPizza);
+            }
+
+            using(PizzaContext db = new PizzaContext())
+            {
+                PizzaModel pizzaToCreate = new PizzaModel(newPizza.Name, newPizza.Description, newPizza.ImgSource, newPizza.Price);
+
+                db.Pizze.Add(pizzaToCreate);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+        }
+        
     }
 }
