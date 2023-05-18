@@ -9,39 +9,15 @@ namespace La_Mia_Pizzeria.Models.CustomValidations
             int flag= 0;
            
             string fieldValue = (string)value;
-            if(fieldValue == null) 
+            if(fieldValue == null || fieldValue.Split(" ").Length < 5) 
             {
-                return new ValidationResult("Il campo non può essere nullo.");
+                return new ValidationResult("Il campo deve contenere almeno 5 parole.");
             }
             else
-            {
-                do
-                {
-                    if (fieldValue.Trim().IndexOf(" ") == -1)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        flag++;
-                    }
-
-                    if(flag >= 4)
-                    {
-                        break;
-                    }
-                } while (fieldValue.Trim().IndexOf(" ") == -1);
-
-            }
-            if(flag >= 4 )
             {
                 return ValidationResult.Success;
             }
-            else
-            {
-                return new ValidationResult("Il campo deve contenere almeno 5 parole.");
-
-            }
+            
 
         }
     }

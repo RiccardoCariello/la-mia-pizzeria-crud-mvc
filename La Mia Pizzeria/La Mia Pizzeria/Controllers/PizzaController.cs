@@ -49,7 +49,7 @@ namespace La_Mia_Pizzeria.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(PizzaModel newPizza)
         {
-            if (ModelState.IsValid) 
+            if (!ModelState.IsValid) 
             {
                 return View("Create", newPizza);
             }
