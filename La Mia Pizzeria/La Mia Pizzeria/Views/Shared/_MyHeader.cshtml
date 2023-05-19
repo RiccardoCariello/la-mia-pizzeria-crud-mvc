@@ -1,13 +1,19 @@
 ﻿ <!-- As a heading -->
-<nav class="navbar bg-dark">
+<nav class="navbar bg-dark ">
     <div class="container-fluid">
-
-        <span class="navbar-brand mb-0 h1">La Mia Pizzeria</span>
+        <a class="navbar-brand d-flex align-items-center ms-3 text-light h1" href="@Url.Action("Index", "Home")">
+            <img src="~/img/pizza-slice.png"
+                 alt="Logo"
+                 height="40"
+                 class="d-inline-block align-text-top me-3" />
+            La Mia Pizzeria
+        </a>
+        
         <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="@Url.Action("Index", "Pizza")" class="nav-link px-2 text-body-success">Home</a></li>
-            <li class="nav-item"><a href="@Url.Action("Contacts", "Pizza")" class="nav-link px-2 text-body-secondary">Contatti</a></li>
-            <li class="nav-item"><a href="@Url.Action("Privacy", "Pizza")" class="nav-link px-2 text-body-secondary">Privacy</a></li>
-
+            <li class="nav-item btn btn-outline-light me-2"><a href="@Url.Action("Index", "Pizza")" class="nav-link px-2 fw-bold btn-light btn-outline-dark text-light " type="button">Home</a></li>
+            <li class="nav-item btn btn-outline-light me-2"><a href="@Url.Action("Contacts", "Pizza")" class="nav-link px-2 fw-bold btn-light btn-outline-dark text-light" type="button">Contatti</a></li>
+            <li class="nav-item btn btn-outline-light me-2"><a href="@Url.Action("Privacy", "Pizza")" class="nav-link px-2 fw-bold btn-light btn-outline-dark text-light" type="button">Privacy</a></li>
+            
         </ul>
 
     </div>

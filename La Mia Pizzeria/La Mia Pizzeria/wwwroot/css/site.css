@@ -53,4 +53,7 @@ body {
     width: 230 px;
 }
 
-               }
+
+* {
+    font-family: 'Merriweather', serif;
+}
