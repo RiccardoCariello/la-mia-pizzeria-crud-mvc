@@ -39,6 +39,14 @@ namespace La_Mia_Pizzeria.Controllers
                 }
             }
         }
+
+        [HttpGet]
+        public IActionResult Contacts()
+        {
+            return View();
+        }
+
+
         [HttpGet]
         public IActionResult Create()
         {
