@@ -2,11 +2,14 @@
 using La_Mia_Pizzeria.Models;
 using La_Mia_Pizzeria.Database;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Authorization;
 
 namespace La_Mia_Pizzeria.Controllers
 {
+    
     public class PizzaController : Controller
     {
+        
         public IActionResult Index()
         {
             using (PizzaContext db = new PizzaContext())
@@ -19,7 +22,11 @@ namespace La_Mia_Pizzeria.Controllers
 
 
         }
-
+        
+        
+        
+        //[Authorize(Roles = "ADMIN,USER")]
+        [HttpGet]
         public IActionResult PizzaDetails(int Id)
         {
 
@@ -40,6 +47,9 @@ namespace La_Mia_Pizzeria.Controllers
             }
         }
 
+
+
+        //[Authorize(Roles = "ADMIN,USER")]
         [HttpGet]
         public IActionResult Contacts()
         {
@@ -47,6 +57,8 @@ namespace La_Mia_Pizzeria.Controllers
         }
 
 
+
+        [Authorize(Roles = "ADMIN")]
         [HttpGet]
         public IActionResult Create()
         {
@@ -54,6 +66,8 @@ namespace La_Mia_Pizzeria.Controllers
         }
 
 
+
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(PizzaModel newPizza)
@@ -75,6 +89,8 @@ namespace La_Mia_Pizzeria.Controllers
         }
 
 
+
+        [Authorize(Roles = "ADMIN")]
         [HttpGet] public IActionResult Update(int id) {
 
 
@@ -97,6 +113,8 @@ namespace La_Mia_Pizzeria.Controllers
         }
 
 
+
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Update(int id, PizzaModel pizzaModificata)
@@ -127,6 +145,9 @@ namespace La_Mia_Pizzeria.Controllers
             }
         }
 
+
+
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)

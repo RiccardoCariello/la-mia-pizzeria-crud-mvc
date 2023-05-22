@@ -9,12 +9,21 @@
             La Mia Pizzeria
         </a>
         
-        <ul class="nav col-md-4 justify-content-end">
+        <ul class="nav col-md-4 list-inline justify-content-end">
             <li class="nav-item btn btn-outline-light me-2"><a href="@Url.Action("Index", "Pizza")" class="nav-link px-2 fw-bold btn-light btn-outline-dark text-light " type="button">Home</a></li>
             <li class="nav-item btn btn-outline-light me-2"><a href="@Url.Action("Contacts", "Pizza")" class="nav-link px-2 fw-bold btn-light btn-outline-dark text-light" type="button">Contatti</a></li>
             <li class="nav-item btn btn-outline-light me-2"><a href="@Url.Action("Privacy", "Pizza")" class="nav-link px-2 fw-bold btn-light btn-outline-dark text-light" type="button">Privacy</a></li>
             
-        </ul>
 
+            <li class="nav-item btn btn-outline-light me-2"><partial name="_LoginPartial" /></li>
+
+            @if (User.IsInRole("ADMIN"))
+            {
+                <li class="nav-item btn btn-outline-light me-2"><a href="@Url.Action("Index", "User")" class="nav-link px-2 fw-bold btn-light btn-outline-dark text-light" type="button">Admin</a></li>
+            }
+        </ul>
+        <!-- code omitted -->
+        
     </div>
+
 </nav>

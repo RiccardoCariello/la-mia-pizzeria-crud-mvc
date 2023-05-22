@@ -1,11 +1,13 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    font-family: 'Merriweather', serif;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+        
+    }
 }
 
 html {
@@ -64,5 +66,5 @@ svg {
     */
 
 * {
-    font-family: 'Merriweather', serif;
+    font-family: 'Merriweather', serif !important;
 }
