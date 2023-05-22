@@ -53,7 +53,16 @@ body {
     width: 230 px;
 }
 
+/*
+svg {
+    width :24px; 
+    height:24px;
+    fill: currentColor; 
+    border-radius: 50%; 
+    border: 1px solid #000;
+}
+    */
 
-body {
+* {
     font-family: 'Merriweather', serif;
 }
