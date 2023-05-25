@@ -3,9 +3,9 @@
     public class PizzaListCathegory
     {
 
-        public PizzaModel Pizza { get; set; }
+        public PizzaModel Pizze { get; set; }
 
-        public List<CathegoryModel>? PizzaCathergories { get; set; }
+        public List<CathegoryModel>? Categorie { get; set; }
 
 
     }

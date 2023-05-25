@@ -24,6 +24,17 @@
                         <div class="card-body">
                             <h5 class="card-title">@Model.Name</h5>
                             <p class="card-text ">@Model.Description</p>
+                            <p>
+                                <strong>Categoria:</strong>
+                                @if (Model.Cathegory != null)
+                                {
+                                    @Model.Cathegory.Name;
+                                }
+                                else
+                                {
+                                    <span>Nessuna categoria</span>
+                                }
+                            </p>
                         </div>
                         <div class="card-footer bg-transparent border-dark pb-5">
                             <h4>Prezzo :@Model.Price.ToString("0.00") €</h4>
