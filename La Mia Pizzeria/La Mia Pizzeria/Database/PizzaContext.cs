@@ -9,6 +9,7 @@ namespace La_Mia_Pizzeria.Database
     {
         public DbSet<PizzaModel> Pizze { get; set; }
 
+        public DbSet<CathegoryModel> Categorie { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

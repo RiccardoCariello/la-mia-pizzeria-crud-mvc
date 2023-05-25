@@ -56,7 +56,11 @@ namespace La_Mia_Pizzeria.Controllers
             return View();
         }
 
-
+        [HttpGet]
+        public IActionResult Privacy()
+        {
+            return View("Privacy");
+        }
 
         [Authorize(Roles = "ADMIN")]
         [HttpGet]

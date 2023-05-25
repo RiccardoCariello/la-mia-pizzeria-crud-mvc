@@ -4,6 +4,7 @@ using La_Mia_Pizzeria.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace La_Mia_Pizzeria.Migrations
 {
     [DbContext(typeof(PizzaContext))]
-    partial class PizzaContextModelSnapshot : ModelSnapshot
+    [Migration("20230525133224_newMig")]
+    partial class newMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,26 +25,6 @@ namespace La_Mia_Pizzeria.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("La_Mia_Pizzeria.Models.CathegoryModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categorie");
-                });
-
             modelBuilder.Entity("La_Mia_Pizzeria.Models.PizzaModel", b =>
                 {
                     b.Property<int>("Id")
@@ -49,9 +32,6 @@ namespace La_Mia_Pizzeria.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CathegoryId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -72,8 +52,6 @@ namespace La_Mia_Pizzeria.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CathegoryId");
 
                     b.ToTable("Pizze");
                 });
@@ -276,15 +254,6 @@ namespace La_Mia_Pizzeria.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("La_Mia_Pizzeria.Models.PizzaModel", b =>
-                {
-                    b.HasOne("La_Mia_Pizzeria.Models.CathegoryModel", "Cathegory")
-                        .WithMany("pizzaModels")
-                        .HasForeignKey("CathegoryId");
-
-                    b.Navigation("Cathegory");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -334,11 +303,6 @@ namespace La_Mia_Pizzeria.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("La_Mia_Pizzeria.Models.CathegoryModel", b =>
-                {
-                    b.Navigation("pizzaModels");
                 });
 #pragma warning restore 612, 618
         }

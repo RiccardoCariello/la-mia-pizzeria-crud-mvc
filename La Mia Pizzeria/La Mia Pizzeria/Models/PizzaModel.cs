@@ -32,6 +32,11 @@ namespace La_Mia_Pizzeria.Models
 
         public float Price { get; set; }
 
+
+        public int? CathegoryId { get; set; }
+        public CathegoryModel? Cathegory { get; set; }
+
+
         public PizzaModel(string name, string description, string imgSource, float price)
         {
             this.Name = name;
