@@ -24,6 +24,8 @@ html {
 
 body {
     margin-bottom: 60px;
+    text-align:center;
+    
     
 }
 
@@ -61,6 +63,13 @@ body {
     height: 625 px;
     width: 230 px;
 }
+
+.size_big{
+    
+}
+
+
+
 
 /*
 svg {
