@@ -16,7 +16,7 @@ namespace La_Mia_Pizzeria.Controllers
         {
             using (PizzaContext db = new PizzaContext())
             {
-                List<PizzaModel> pizze = db.Pizze.ToList();
+                List<PizzaModel> pizze = db.Pizze.Include(p=>p.Cathegory).ToList();
 
                 return View(pizze);
             }

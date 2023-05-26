@@ -6,26 +6,35 @@
     <div class="row my-5">
         
         <div class="col-12 text-center text-white">
-            <h3 style="font-family: 'Merriweather', serif;">Lista delle Pizze</h3>
+            <h2 >Lista delle Pizze</h2>
         </div>
         
 
     </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="row row-cols-1 row-cols-md-3 g-4 " >
-
-
+    <div class="row row-cols-2 row-cols-3 row-cols-4">
+        
 
                                 @{
                     foreach (PizzaModel pizza in Model)
                     {
-                        <div class="col  w-50 p-3 d-inline-block">
+                        <div class="col col-4  p-3">
                             <div class="card h-100 text-bg-dark text-center ">
                                 <img src="@pizza.ImgSource" class="card-img-top square" alt="pizza coi funghi">
                                 <div class="card-body">
                                     <h5 class="card-title">@pizza.Name</h5>
                                     <p class="card-text ">@pizza.Description</p>
+                            <p>
+                                <strong>Categoria:</strong>
+                                @if (pizza.Cathegory != null)
+                                {
+                                    @pizza.Cathegory.Name
+                                    ;
+                                }
+                                else
+                                {
+                                    <span>Nessuna categoria</span>
+                                }
+                            </p>
                                 </div>
                                 <div class="card-footer bg-transparent border-dark pb-5 align-content-center my-2">
                                     <h4>Prezzo :@pizza.Price.ToString("0.00") €</h4>
@@ -44,7 +53,7 @@
                                                 <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
                                             </svg>
                                         </a>
-                                        <form asp-controller="Pizza" asp-action="Delete" asp-route-id="@pizza.Id" method="post">
+                                        <form asp-controller="Pizza" asp-action="Delete" asp-route-id="@pizza.Id" method="post" class="d-inline-block">
                                             @Html.AntiForgeryToken()
                                             <button type="submit" class="btn btn-danger btn-sm mt-2 mx-2">
 
@@ -58,25 +67,25 @@
                                     }
                                 </div>
                             </div>
-                        </div>
-                    }
+                </div>
+            }
 
-                    }
+        }
 
 
+
+    </div>
+
+    @if (User.IsInRole("ADMIN"))
+    {
+        <div class="row text-center align-content-center align-items-center my-3 py-3">
+
+            <div class="col-12 text-center mt-3">
+                <a class="btn btn-outline-light me-2" href="@Url.Action("Create", "Pizza")">
+                    Crea nuova Pizza
+                </a>
             </div>
-            
+
         </div>
-
-        
-    </div>
-    <div class="row text-center align-content-center align-items-center">
-
-        <div class="col-12 text-center mt-3">
-            <a class="btn btn-primary" href="@Url.Action("Create", "Pizza")">
-                Crea nuova Pizza
-            </a>
-        </div>
-
-    </div>
+    }
 </div>
